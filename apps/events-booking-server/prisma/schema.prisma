@@ -1,0 +1,33 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Booking {
+  createdAt DateTime           @default(now())
+  customer  String?
+  event     Event?             @relation(fields: [eventId], references: [id])
+  eventId   String?
+  id        String             @id @default(cuid())
+  status    EnumBookingStatus?
+  updatedAt DateTime           @updatedAt
+}
+
+model Event {
+  bookings    Booking[]
+  createdAt   DateTime  @default(now())
+  date        DateTime?
+  description String?
+  id          String    @id @default(cuid())
+  location    String?
+  title       String?
+  updatedAt   DateTime  @updatedAt
+}
+
+enum EnumBookingStatus {
+  Option1
+}
