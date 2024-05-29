@@ -1,0 +1,32 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model LogLevel {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  name      String?
+  updatedAt DateTime @updatedAt
+}
+
+model LogSource {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  name      String?
+  updatedAt DateTime @updatedAt
+}
+
+model LogEntry {
+  createdAt DateTime  @default(now())
+  id        String    @id @default(cuid())
+  level     String?
+  message   String?
+  source    String?
+  timestamp DateTime?
+  updatedAt DateTime  @updatedAt
+}
