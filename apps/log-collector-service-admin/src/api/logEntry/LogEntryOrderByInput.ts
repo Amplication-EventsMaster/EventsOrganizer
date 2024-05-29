@@ -1,6 +1,7 @@
 import { SortOrder } from "../../util/SortOrder";
 
 export type LogEntryOrderByInput = {
+  comment?: SortOrder;
   createdAt?: SortOrder;
   id?: SortOrder;
   level?: SortOrder;

@@ -1,4 +1,5 @@
 export type LogEntry = {
+  comment: string | null;
   createdAt: Date;
   id: string;
   level: string | null;

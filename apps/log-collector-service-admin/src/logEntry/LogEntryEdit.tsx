@@ -11,6 +11,7 @@ export const LogEntryEdit = (props: EditProps): React.ReactElement => {
   return (
     <Edit {...props}>
       <SimpleForm>
+        <TextInput label="comment" source="comment" />
         <TextInput label="level" source="level" />
         <TextInput label="message" multiline source="message" />
         <TextInput label="source" source="source" />

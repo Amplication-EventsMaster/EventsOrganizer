@@ -33,6 +33,7 @@ export class LogEntryControllerBase {
     return await this.service.createLogEntry({
       data: data,
       select: {
+        comment: true,
         createdAt: true,
         id: true,
         level: true,
@@ -52,6 +53,7 @@ export class LogEntryControllerBase {
     return this.service.logEntries({
       ...args,
       select: {
+        comment: true,
         createdAt: true,
         id: true,
         level: true,
@@ -72,6 +74,7 @@ export class LogEntryControllerBase {
     const result = await this.service.logEntry({
       where: params,
       select: {
+        comment: true,
         createdAt: true,
         id: true,
         level: true,
@@ -101,6 +104,7 @@ export class LogEntryControllerBase {
         where: params,
         data: data,
         select: {
+          comment: true,
           createdAt: true,
           id: true,
           level: true,
@@ -130,6 +134,7 @@ export class LogEntryControllerBase {
       return await this.service.deleteLogEntry({
         where: params,
         select: {
+          comment: true,
           createdAt: true,
           id: true,
           level: true,
